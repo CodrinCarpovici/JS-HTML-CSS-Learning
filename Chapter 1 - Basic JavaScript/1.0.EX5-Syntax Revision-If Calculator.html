@@ -1,0 +1,23 @@
+<html><body><script>
+    var first = Number(prompt("First number:", ""));
+    var operator = prompt("Operation:", "");
+    var secondInput = Number(prompt("Second number:", ""));
+    var result = 0;
+
+    if (operator == "+"){
+        result = first + secondInput;
+        alert(first + " + " + secondInput + " = " + result);
+    }else if (operator == "-"){
+        result = first - secondInput;
+        alert(first + " - " + secondInput + " = " + result);
+    }else if(operator == "*"){
+        result = first * secondInput;
+        alert(first + " * " + secondInput + " = " + result);
+    }else if(operator == "/"){
+        result = first / secondInput;
+        alert(first + " / " + secondInput + " = " + result);
+    }else {
+        alert("Unkown input!");}
+
+
+</script></body></html>

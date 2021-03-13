@@ -1,0 +1,15 @@
+<html><body><script>
+    var inputArray = [];
+var size = 5; //Maximum Array size
+
+for(var i=0; i<size; i++) {
+	
+	//Taking Input from user
+	inputArray[i] = prompt('Enter Element ' + (i+1));
+}
+var min = Math.min.apply(null,inputArray);
+var max = Math.max.apply(null,inputArray);
+
+alert("Your min is " + min + " and your max is " + max);
+
+</script></body></html>

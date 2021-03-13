@@ -1,0 +1,49 @@
+<!--
+To define a special style for one particular table, 
+add an id attribute to the table
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table, th, td{
+            border: 1px solid;
+            border-collapse:collapse;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        #t01 {
+            width: 100%;
+            background-color: #f1f1c1;
+        }
+        #t01 tr:nth-child(even) {
+            background-color: #eee;
+        }
+        #t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        #t01 th {
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <table id="t01">
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Age</th>
+        </tr>
+        <tr>
+          <td>Eve</td>
+          <td>Jackson</td>
+          <td>94</td>
+        </tr>
+      </table>
+</body>
+</html>

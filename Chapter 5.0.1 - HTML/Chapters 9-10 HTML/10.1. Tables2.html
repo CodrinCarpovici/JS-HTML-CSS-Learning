@@ -1,0 +1,32 @@
+<!--To make a cell span more than one column, use the colspan attribute-->
+<!--To make a cell span more than one row, use the rowspan attribute-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <table style="width:100%">
+        <tr>
+          <th>Name</th>
+          <th colspan="2">Telephone</th>
+          <th rowspan="2">More</th>
+          <td>Stuff</td>
+        </tr>
+        <tr>
+          <td>Bill Gates</td>
+          <td>55577854</td>
+          <td>55577855</td>
+          <td>More Stuff</td>
+        </tr>
+      </table>
+</body>
+</html>

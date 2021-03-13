@@ -1,0 +1,57 @@
+<!--
+The <table> tag defines an HTML table.
+Each table row is defined with a <tr> tag. Each table header is defined 
+with a <th> tag. Each table data/cell is defined with a <td> tag.
+By default, the text in <th> elements are bold and centered.
+By default, the text in <td> elements are regular and left-aligned.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--TO add borders you need to use the css border property-->
+    <!--To let the borders collapse into one border, add the 
+        CSS border-collapse property-->
+    <!--To set the padding, use the CSS padding property-->
+    <!--
+        By default, table headings are bold and centered.
+        To left-align the table headings, use the CSS text-align property
+    -->
+    <!--To set the border spacing for a table, use the CSS 
+        border-spacing property-->
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse:collapse;
+        }
+        th, td {
+            padding: 15px;
+        }
+        th {
+            text-align: left;
+        }
+        table {
+            border-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Eve</td>
+            <td>Jackson</td>
+            <td>94</td>
+        </tr>
+    </table>
+</body>
+</html>
