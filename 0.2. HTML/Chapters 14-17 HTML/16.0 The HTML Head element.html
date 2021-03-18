@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--The HTML <head> element is a container for the following elements: 
+    <title>, <style>, <meta>, <link>, <script>, and <base>-->
+    <!--The head element is a container for metadata(data about data)
+    and is placed between the html tag and the body tag-->
+    <!--Metadata typically define the document title, character set, 
+    styles, scripts, and other meta information-->
+    <title>Html Head Element</title>
+
+    <style>
+        body {
+            background-color: azure;
+        }
+        h1 {
+            color:red;
+        }
+        p {
+            color: green;
+        }
+    </style>
+
+    <link rel="stylesheets" href="mystyle.css">
+
+    <!--The <meta> element is typically used to specify the character set, 
+    page description, keywords, author of the document, and viewport 
+    settings.-->
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTML, CSS, Javascript">
+    <meta name="description" content="Web Tutorials">
+    <meta name="author" content="Codrin Carpovici">
+    <meta http-equiv="refresh" content="30">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Script element-->
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Hello JS!";
+        }
+    </script>
+
+    <!--The base element-->
+    <!--The <base> element specifies the base URL and/or target for all 
+    relative URLs in a page.
+    The <base> tag must have either an href or a target attribute present, 
+    or both.
+    There can only be one single <base> element in a document!-->
+    <base href="https://www.w3schools.com/" target="_blank">
+</head>
+<body>
+    <h1>First Heading</h1>
+    <p id = "demo">A paragraph</p> 
+    <button type="button" onclick="myFunction()">Try JS!</button>
+
+    <!--Base element perks-->
+
+    <h1>The base element</h1>
+
+    <p><img src="images/stickman.gif" width="24" height="39" alt="Stickman"> - Notice that we have only specified a relative address for the image. Since we have specified a base URL in the head section, the browser will look for the image at "https://www.w3schools.com/images/stickman.gif".</p>
+
+    <p><a href="tags/tag_base.asp">HTML base tag</a> - Notice that the link opens in a new window, even if it has no target="_blank" attribute. This is because the target attribute of the base element is set to "_blank".</p>
+</body>
+</html>
