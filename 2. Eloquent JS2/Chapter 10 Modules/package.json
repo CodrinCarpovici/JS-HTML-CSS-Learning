@@ -1,3 +1,7 @@
 {
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "date-names": "^0.1.13",
+        "ordinal": "^1.0.3"
+    }
 }

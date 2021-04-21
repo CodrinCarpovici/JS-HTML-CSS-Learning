@@ -1,8 +1,9 @@
 import ordinal from "ordinal";
-import {days, months} from "date-names";
-import package from './packages_chapter_10.js';
+import { days, months } from "date-names";
 
-export function formatDate(date, format) {/* ... */}
+/*
+export function formatDate(date, format) {/* ... }*/
+
 
 /*
 Similarly, the export keyword is used to export things. It may appear
