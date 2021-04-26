@@ -1,0 +1,65 @@
+<!--
+HTML
+HTML, which stands for Hypertext Markup Language, is the document
+format used for web pages. An HTML document contains text, as well
+as tags that give structure to the text, describing things such as links,
+paragraphs, and headings.
+A short HTML document might look like this:
+-->
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>My home page</title>
+</head>
+<body>
+<h1>My home page</h1>
+<p>Hello, I am Marijn and this is my home page.</p>
+<p>I also wrote a book! Read it
+<a href="http://eloquentjavascript.net">here</a>.</p>
+</body>
+</html>
+
+<!--
+The tags, wrapped in angle brackets (< and >, the symbols for less
+than and greater than), provide information about the structure of the
+document. The other text is just plain text.
+The document starts with <!doctype html>, which tells the browser
+to interpret the page as modern HTML, as opposed to various dialects
+351
+that were in use in the past.
+HTML documents have a head and a body. The head contains information about 
+the document, and the body contains the document
+itself. In this case, the head declares that the title of this document
+is “My home page” and that it uses the UTF-8 encoding, which is a
+way to encode Unicode text as binary data. The document’s body
+contains a heading (<h1>, meaning “heading 1”—<h2> to <h6> produce
+subheadings) and two paragraphs (<p>).
+Tags come in several forms. An element, such as the body, a paragraph, or 
+a link, is started by an opening tag like <p> and ended by
+a closing tag like </p>. Some opening tags, such as the one for the
+link (<a>), contain extra information in the form of name="value" pairs.
+These are called attributes. In this case, the destination of the link is 
+indicated with href="http://eloquentjavascript.net", where href stands
+for “hypertext reference”.
+Some kinds of tags do not enclose anything and thus do not need to
+be closed. The metadata tag <meta charset="utf-8"> is an example of
+this.
+To be able to include angle brackets in the text of a document, even
+though they have a special meaning in HTML, yet another form of
+special notation has to be introduced. A plain opening angle bracket is
+written as &lt; (“less than”), and a closing bracket is written as &gt;
+(“greater than”). In HTML, an ampersand (&) character followed by a
+name or character code and a semicolon (;) is called an entity and will
+be replaced by the character it encodes.
+This is analogous to the way backslashes are used in JavaScript
+strings. Since this mechanism gives ampersand characters a special
+meaning, too, they need to be escaped as &amp;. Inside attribute values, 
+which are wrapped in double quotes, &quot; can be used to insert
+an actual quote character.
+HTML is parsed in a remarkably error-tolerant way. When tags that
+should be there are missing, the browser reconstructs them. The way
+in which this is done has been standardized, and you can rely on all
+modern browsers to do it in the same way.
+-->
