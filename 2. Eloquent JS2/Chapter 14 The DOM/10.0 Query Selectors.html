@@ -1,0 +1,41 @@
+<!--
+The main reason I introduced selector syntax—the notation used in
+style sheets to determine which elements a set of styles apply to—is
+that we can use this same mini-language as an effective way to find
+DOM elements.
+The querySelectorAll method, which is defined both on the document
+object and on element nodes, takes a selector string and returns a
+NodeList containing all the elements that it matches.
+-->
+
+<p>And if you go chasing
+    <span class="animal">rabbits</span>
+</p>
+<p>And you know you're going to fall</p>
+<p>Tell 'em a <span class="character">hookah smoking
+        <span class="animal">caterpillar</span></span></p>
+<p>Has given you the call</p>
+
+<script>
+    function count(selector) {
+        return document.querySelectorAll(selector).length;
+    }
+    console.log(count("p")); // All <p> elements
+    // → 4
+    console.log(count(".animal")); // Class animal
+    // → 2
+    console.log(count("p .animal")); // Animal inside of <p>
+    // → 2
+    console.log(count("p > .animal")); // Direct child of <p>
+    // → 1
+</script>
+
+<!--
+Unlike methods such as getElementsByTagName, the object returned
+by querySelectorAll is not live. It won’t change when you change the
+document. It is still not a real array, though, so you still need to call
+Array.from if you want to treat it like one.
+The querySelector method (without the All part) works in a similar
+way. This one is useful if you want a specific, single element. It will
+return only the first matching element or null when no element matches.
+-->

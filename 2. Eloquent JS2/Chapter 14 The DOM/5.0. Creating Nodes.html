@@ -1,0 +1,38 @@
+<!--
+Say we want to write a script that replaces all images (<img> tags) in
+the document with the text held in their alt attributes, which specifies
+an alternative textual representation of the image.
+This involves not only removing the images but adding a new text
+node to replace them. Text nodes are created with the document.
+createTextNode method.
+-->
+
+<p> The <img src="cat.jpg" alt="Cat"> in the 
+    <img src="hat.jpg" alt="Hat">.</p>
+
+<p><button onclick="replaceImages()">Replace</button></p>
+
+<script>
+    function replaceImages() {
+        let images = document.body.getElementsByTagName('img');
+        for(let i = images.length - 1; i >= 0; i--) {
+            let image = images[i];
+            if (image.alt) {
+                let text = document.createTextNode(image.alt);
+                image.parentNode.replaceChild(text, image);
+            }
+        }
+    }
+</script>
+
+<!--
+Given a string, createTextNode gives us a text node that we can insert
+into the document to make it show up on the screen.
+The loop that goes over the images starts at the end of the list.
+This is necessary because the node list returned by a method like
+getElementsByTagName (or a property like childNodes) is live. That is,
+it is updated as the document changes. If we started from the front,
+removing the first image would cause the list to lose its first element
+so that the second time the loop repeats, where i is 1, it would stop
+because the length of the collection is now also 1.
+-->

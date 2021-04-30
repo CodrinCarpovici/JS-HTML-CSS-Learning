@@ -1,0 +1,27 @@
+<!--
+You may have noticed that different types of elements are laid out
+differently. Some, such as paragraphs (<p>) or headings (<h1>), take up
+the whole width of the document and are rendered on separate lines.
+These are called block elements. Others, such as links (<a>) or the <
+strong> element, are rendered on the same line with their surrounding
+text. Such elements are called inline elements.
+The size and position of an element can be accessed from JavaScript.
+The offsetWidth and offsetHeight properties give you the space the
+element takes up in pixels. A pixel is the basic unit of measurement in
+the browser. It traditionally corresponds to the smallest dot that the
+screen can draw, but on modern displays, which can draw very small
+dots, that may no longer be the case, and a browser pixel may span
+multiple display dots.
+Similarly, clientWidth and clientHeight give you the size of the space
+inside the element, ignoring border width.
+-->
+
+<p style="border: 3px solid red">
+    I'm boxed in
+</p>
+
+<script>
+    let para = document.body.getElementsByTagName("p")[0];
+    console.log("clientHeight:", para.clientHeight);
+    console.log("offsetHeight:", para.offsetHeight);
+</script>

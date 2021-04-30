@@ -1,0 +1,31 @@
+<!--
+Almost everything about the DOM data structure can be changed. The
+shape of the document tree can be modified by changing parent-child
+relationships. Nodes have a remove method to remove them from their
+current parent node. To add a child node to an element node, we can
+use appendChild, which puts it at the end of the list of children, or
+insertBefore, which inserts the node given as the first argument before
+the node given as the second argument.
+-->
+
+<p>One</p>
+<p>Two</p>
+<p>Three</p>
+<script>
+    let paragraphs = document.body.getElementsByTagName("p");
+    document.body.insertBefore(paragraphs[2], paragraphs[0]);
+</script>
+
+<!--
+A node can exist in the document in only one place. Thus, inserting
+paragraph Three in front of paragraph One will first remove it from
+the end of the document and then insert it at the front, resulting in
+Three/One/Two. All operations that insert a node somewhere will, as
+a side effect, cause it to be removed from its current position (if it has
+one).
+The replaceChild method is used to replace a child node with another
+one. It takes as arguments two nodes: a new node and the node to be
+replaced. The replaced node must be a child of the element the method
+is called on. Note that both replaceChild and insertBefore expect the
+new node as their first argument.
+-->

@@ -1,0 +1,51 @@
+<!--
+The position style property influences layout in a powerful way. By
+default it has a value of static, meaning the element sits in its normal
+place in the document. When it is set to relative, the element still takes
+up space in the document, but now the top and left style properties
+can be used to move it relative to that normal place. When position
+is set to absolute, the element is removed from the normal document
+flow—that is, it no longer takes up space and may overlap with other
+elements. Also, its top and left properties can be used to absolutely
+position it relative to the top-left corner of the nearest enclosing element
+whose position property isn’t static, or relative to the document if no
+such enclosing element exists.
+We can use this to create an animation. The following document
+displays a picture of a cat that moves around in an ellipse:
+-->
+
+<p style="text-align: center">
+    <img src="cat.jpg" style="position: relative">
+</p>
+<script>
+    let cat = document.querySelector("img");
+    let angle = Math.PI / 2;
+    function animate(time, lastTime) {
+        if (lastTime != null) {
+            angle += (time - lastTime) * 0.001;
+        }
+        cat.style.top = (Math.sin(angle) * 20) + "px";
+        cat.style.left = (Math.cos(angle) * 200) + "px";
+        requestAnimationFrame(newTime => animate(newTime, time));
+    }
+    requestAnimationFrame(animate);
+</script>
+
+<!--
+Our picture is centered on the page and given a position of relative.
+We’ll repeatedly update that picture’s top and left styles to move it.
+The script uses requestAnimationFrame to schedule the animate function 
+to run whenever the browser is ready to repaint the screen. The
+animate function itself again calls requestAnimationFrame to schedule the
+next update. When the browser window (or tab) is active, this will
+cause updates to happen at a rate of about 60 per second, which tends
+to produce a good-looking animation.
+
+If we just updated the DOM in a loop, the page would freeze, and
+nothing would show up on the screen. Browsers do not update their
+display while a JavaScript program is running, nor do they allow any
+interaction with the page. This is why we need requestAnimationFrame
+—it lets the browser know that we are done for now, and it can go
+ahead and do the things that browsers do, such as updating the screen
+and responding to user actions.
+-->

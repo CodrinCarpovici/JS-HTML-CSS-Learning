@@ -1,0 +1,44 @@
+<!--
+To create element nodes, you can use the document.createElement
+method. This method takes a tag name and returns a new empty node
+of the given type.
+The following example defines a utility elt, which creates an element
+node and treats the rest of its arguments as children to that node. This
+function is then used to add an attribution to a quote.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <blockquote id="quote">
+        No book can ever be finished. While working on it we learn
+        just enough to find it immature the moment we turn away
+        from it.
+    </blockquote>
+    <script>
+        function elt(type, ...children) {
+            let node = document.createElement(type);
+            for (let child of children) {
+                if (typeof child != "string") node.appendChild(child);
+                else node.appendChild(document.createTextNode(child));
+            }
+            return node;
+        }
+        document.getElementById("quote").appendChild(
+            elt("footer", "—",
+                elt("strong", "Karl Popper"),
+                ", preface to the second edition of ",
+                elt("em", "The Open Society and Its Enemies"),
+                ", 1950"));
+    </script>
+</body>
+
+</html>

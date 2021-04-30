@@ -1,0 +1,30 @@
+<!--
+You can imagine an HTML document as a nested set of boxes. Tags
+such as <body> and </body> enclose other tags, which in turn contain
+other tags or text. Here’s the example document from the previous
+chapter:
+-->
+<!doctype html>
+<html>
+<head>
+<title>My home page</title>
+</head>
+<body>
+<h1>My home page</h1>
+<p>Hello, I am Marijn and this is my home page.</p>
+<p>I also wrote a book! Read it
+<a href="http://eloquentjavascript.net">here</a>.</p>
+</body>
+</html>
+
+<!--
+The data structure the browser uses to represent the document follows 
+this shape. For each box, there is an object, which we can interact
+with to find out things such as what HTML tag it represents and which
+boxes and text it contains. This representation is called the Document
+Object Model, or DOM for short.
+The global binding document gives us access to these objects. Its
+documentElement property refers to the object representing the <html>
+tag. Since every HTML document has a head and a body, it also has
+head and body properties, pointing at those elements.
+-->

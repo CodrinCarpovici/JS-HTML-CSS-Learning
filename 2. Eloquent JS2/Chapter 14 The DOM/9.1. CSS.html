@@ -1,0 +1,45 @@
+<!--
+The cascading in the name refers to the fact that multiple such rules
+are combined to produce the final style for an element. In the example,
+the default styling for <strong> tags, which gives them font-weight:
+bold, is overlaid by the rule in the <style> tag, which adds font-style
+and color.
+When multiple rules define a value for the same property, the most
+recently read rule gets a higher precedence and wins. So if the rule in
+the <style> tag included font-weight: normal, contradicting the default
+font-weight rule, the text would be normal, not bold. Styles in a style
+attribute applied directly to the node have the highest precedence and
+always win.
+It is possible to target things other than tag names in CSS rules. A
+rule for .abc applies to all elements with "abc" in their class attribute.
+A rule for #xyz applies to the element with an id attribute of "xyz"
+(which should be unique within the document).
+-->
+
+<style>
+    .subtle {
+        color: gray;
+        font-size: 80%;
+    }
+    #header {
+        background: blue;
+        color: white;
+    }
+    /*p elements with id main and with classes a and b*/
+    p#main.a.b {
+        margin-bottom: 20px;
+    }
+
+</style>
+
+<!--
+The precedence rule favoring the most recently defined rule applies
+only when the rules have the same specificity. A rule’s specificity is a
+measure of how precisely it describes matching elements, determined by
+the number and kind (tag, class, or ID) of element aspects it requires.
+For example, a rule that targets p.a is more specific than rules that
+target p or just .a and would thus take precedence over them.
+The notation p > a …{} applies the given styles to all <a> tags that
+are direct children of <p> tags. Similarly, p a …{} applies to all <a> tags
+inside <p> tags, whether they are direct or indirect children.
+-->

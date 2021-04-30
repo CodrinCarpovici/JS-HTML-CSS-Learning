@@ -1,0 +1,23 @@
+<!--
+All element nodes have a getElementsByTagName method, which collects 
+all elements with the given tag name that are descendants (direct
+or indirect children) of that node and returns them as an array-like
+object.
+To find a specific single node, you can give it an id attribute and use
+document.getElementById instead.
+-->
+
+<p>My ostrich Gertrude:</p>
+<p><img id="gertrude" src="ostrich.png"></p>
+
+<script>
+    let ostrich = document.getElementById("gertrude");
+    console.log(ostrich.src);
+</script>
+
+<!--
+A third, similar method is getElementsByClassName, which, like 
+getElementsByTagName, searches through the contents of an element node 
+and retrieves all elements that have the given string in their class 
+attribute.
+-->
