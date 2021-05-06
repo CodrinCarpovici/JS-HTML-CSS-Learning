@@ -1,0 +1,42 @@
+<!--
+There are specific event types fired by touch interaction. When a
+finger starts touching the screen, you get a "touchstart" event. When
+it is moved while touching, "touchmove" events fire. Finally, when it
+stops touching the screen, you’ll see a "touchend" event.
+Because many touchscreens can detect multiple fingers at the same
+time, these events don’t have a single set of coordinates associated with
+them. Rather, their event objects have a touches property, which holds
+an array-like object of points, each of which has its own clientX, clientY,
+pageX, and pageY properties.
+You could do something like this to show red circles around every
+touching finger:
+-->
+
+<style>
+    dot {
+        position: absolute;
+        display: block;
+        border: 2px solid red;
+        border-radius: 50px;
+        height: 100px;
+        width: 100px;
+    }
+</style>
+<p>Touch this page</p>
+<script>
+    function update(event) {
+        for (let dot; dot = document.querySelector("dot");) {
+            dot.remove();
+        }
+        for (let i = 0; i < event.touches.length; i++) {
+            let { pageX, pageY } = event.touches[i];
+            let dot = document.createElement("dot");
+            dot.style.left = (pageX - 50) + "px";
+            dot.style.top = (pageY - 50) + "px";
+            document.body.appendChild(dot);
+        }
+    }
+    window.addEventListener("touchstart", update);
+    window.addEventListener("touchmove", update);
+    window.addEventListener("touchend", update);
+</script>

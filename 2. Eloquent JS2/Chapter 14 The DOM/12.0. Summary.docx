@@ -1,4 +1,5 @@
-<!--
+Summary
+
 JavaScript programs may inspect and interfere with the document that
 the browser is displaying through a data structure called the DOM. This
 data structure represents the browser’s model of the document, and a
@@ -12,4 +13,3 @@ by attaching styles to nodes directly and by defining rules that match
 certain nodes. There are many different style properties, such as color
 or display. JavaScript code can manipulate an element’s style directly
 through its style property.
--->

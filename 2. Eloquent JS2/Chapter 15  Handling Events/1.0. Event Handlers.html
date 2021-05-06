@@ -1,0 +1,26 @@
+<!--
+Imagine an interface where the only way to find out whether a key on
+the keyboard is being pressed is to read the current state of that key.
+To be able to react to keypresses, you would have to constantly read
+the key’s state so that you’d catch it before it’s released again. It would
+be dangerous to perform other time-intensive computations since you
+might miss a keypress.
+Some primitive machines do handle input like that. A step up from
+this would be for the hardware or operating system to notice the keypress and put it in a queue. A program can then periodically check the
+queue for new events and react to what it finds there.
+Of course, it has to remember to look at the queue, and to do it
+often, because any time between the key being pressed and the program
+noticing the event will cause the software to feel unresponsive. This
+approach is called polling. Most programmers prefer to avoid it.
+A better mechanism is for the system to actively notify our code when
+an event occurs. Browsers do this by allowing us to register functions
+as handlers for specific events.
+-->
+
+<p>Click This document to activate the handler.</p>
+
+<script>
+    window.addEventListener("click", () => {
+        console.log("You knocked?");
+    });
+</script>

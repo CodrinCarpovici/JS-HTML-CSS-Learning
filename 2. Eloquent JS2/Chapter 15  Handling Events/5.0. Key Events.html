@@ -1,0 +1,27 @@
+<!--
+When a key on the keyboard is pressed, your browser fires a "keydown"
+event. When it is released, you get a "keyup" event.
+-->
+
+<p> This page turns violet when you hold the V key.</p>
+<script>
+    window.addEventListener("keydown", event => {
+       if(event.key == "v") {
+           document.body.style.background = "violet";
+       }
+    });
+    window.addEventListener("keyup", event => {
+        if(event.key == "v") {
+            document.body.style.background = "";
+        }
+    });
+</script>
+
+<!--
+Despite its name, "keydown" fires not only when the key is physically
+pushed down. When a key is pressed and held, the event fires again
+every time the key repeats. Sometimes you have to be careful about this.
+For example, if you add a button to the DOM when a key is pressed
+and remove it again when the key is released, you might accidentally
+add hundreds of buttons when the key is held down longer.
+-->

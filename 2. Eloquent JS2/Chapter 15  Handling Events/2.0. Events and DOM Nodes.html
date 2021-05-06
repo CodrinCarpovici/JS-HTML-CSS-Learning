@@ -1,0 +1,18 @@
+<!--
+Each browser event handler is registered in a context. In the previous
+example we called addEventListener on the window object to register a
+handler for the whole window. Such a method can also be found on
+DOM elements and some other types of objects. Event listeners are
+called only when the event happens in the context of the object they
+are registered on.
+-->
+
+<button>Click me</button>
+<p>No handler here</p>
+<script>
+    let button = document.querySelector("button");
+    button.addEventListener("click", () => {
+        console.log("Button clicked.");
+    });
+</script>
+

@@ -1,0 +1,31 @@
+<!--
+That example attaches a handler to the button node. Clicks on the
+button cause that handler to run, but clicks on the rest of the document
+do not.
+Giving a node an onclick attribute has a similar effect. This works for
+most types of events—you can attach a handler through the attribute
+whose name is the event name with on in front of it.
+But a node can have only one onclick attribute, so you can register
+only one handler per node that way. The addEventListener method
+allows you to add any number of handlers so that it is safe to add
+handlers even if there is already another handler on the element.
+The removeEventListener method, called with arguments similar to
+addEventListener, removes a handler.
+-->
+
+<button>Act-once button</button>
+<script>
+    let button = document.querySelector("button");
+    function once() {
+        console.log("Done.");
+        button.removeEventListener("click", once);
+    }
+    button.addEventListener("click", once);
+</script>
+
+<!--
+The function given to removeEventListener has to be the same function 
+value that was given to addEventListener. So, to unregister a handler, 
+you’ll want to give the function a name (once, in the example) to
+be able to pass the same function value to both methods.
+-->

@@ -1,0 +1,21 @@
+<!--
+We can use a slightly different pattern if we want to space responses
+so that they’re separated by at least a certain length of time but want
+to fire them during a series of events, not just afterward. For example,
+we might want to respond to "mousemove" events by showing the current
+coordinates of the mouse but only every 250 milliseconds.
+-->
+
+<script>
+    let scheduled = null;
+    window.addEventListener("mousemove", event => {
+        if (!scheduled) {
+            setTimeout(() => {
+                document.body.textContent = 
+                    `Mouse at ${scheduled.pageX}, ${scheduled.pageY}`;
+                scheduled = null;
+            }, 250);
+        }
+        scheduled = event;
+    });
+</script>
