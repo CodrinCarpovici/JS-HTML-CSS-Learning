@@ -1,0 +1,31 @@
+<!--
+The arc method is a way to draw a line that curves along the edge
+of a circle. It takes a pair of coordinates for the arc’s center, a radius,
+and then a start angle and end angle.
+Those last two parameters make it possible to draw only part of the
+circle. The angles are measured in radians, not degrees. This means a
+full circle has an angle of 2π, or 2 * Math.PI, which is about 6.28. The
+angle starts counting at the point to the right of the circle’s center and
+goes clockwise from there. You can use a start of 0 and an end bigger
+than 2π (say, 7) to draw a full circle.
+-->
+
+<canvas></canvas>
+
+<script>
+    let cx = document.querySelector("canvas").getContext("2d");
+    cx.beginPath();
+    //center=(50, 50) radius=40 angle=0 to 7
+    cx.arc(50, 50, 40, 0, 7);
+    //center=(150, 50)  radius=40 angle=0 to PI/2
+    cx.arc(150, 50, 40, 0, 0.5 * Math.PI);
+    cx.stroke();
+</script>
+
+<!--
+The resulting picture contains a line from the right of the full circle
+(first call to arc) to the right of the quarter-circle (second call). Like
+other path-drawing methods, a line drawn with arc is connected to the
+previous path segment. You can call moveTo or start a new path to avoid
+this.
+-->

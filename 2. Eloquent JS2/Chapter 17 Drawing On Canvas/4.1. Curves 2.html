@@ -1,0 +1,25 @@
+<!--
+The bezierCurveTo method draws a similar kind of curve. Instead
+of a single control point, this one has two—one for each of the line’s
+endpoints.
+-->
+
+<canvas></canvas>
+
+<script>
+    let cx = document.querySelector("canvas").getContext("2d");
+    cx.beginPath();
+    cx.moveTo(10,90);
+    // control=(10,10) control2=(90,10) goal=(50,90)
+    cx.bezierCurveTo(10, 10, 90, 10, 50, 90);
+    cx.lineTo(90, 10);
+    cx.lineTo(10, 10);
+    cx.closePath();
+    cx.stroke();
+</script>
+
+<!--
+The two control points specify the direction at both ends of the curve.
+The farther they are away from their corresponding point, the more the
+curve will “bulge” in that direction.
+-->

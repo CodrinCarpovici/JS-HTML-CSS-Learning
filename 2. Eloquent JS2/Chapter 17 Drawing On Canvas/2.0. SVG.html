@@ -1,0 +1,22 @@
+<p>Normal HTML here.</p>
+<svg xmlns="http://www.w3.org/2000/svg">
+    <circle r="50" cx="50" cy="50" fill="red" />
+    <rect x="120" y="5" width="90" height="90" stroke="blue" fill="none" />
+</svg>
+
+<!--
+The xmlns attribute changes an element (and its children) to a different 
+XML namespace. This namespace, identified by a URL, specifies
+the dialect that we are currently speaking. The <circle> and <rect>
+tags, which do not exist in HTML, do have a meaning in SVG—they
+draw shapes using the style and position specified by their attributes.
+
+These tags create DOM elements, just like HTML tags, that scripts
+can interact with. For example, this changes the <circle> element to
+be colored cyan instead:
+-->
+
+<script>
+    let circle = document.querySelector("circle");
+    circle.setAttribute("fill", "cyan");
+</script>

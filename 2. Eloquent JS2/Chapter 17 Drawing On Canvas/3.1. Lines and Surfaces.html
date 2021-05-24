@@ -1,0 +1,22 @@
+<!--
+In the canvas interface, a shape can be filled, meaning its area is given
+a certain color or pattern, or it can be stroked, which means a line is
+drawn along its edge. The same terminology is used by SVG.
+-->
+
+<canvas></canvas>
+<script>
+    let cx = document.querySelector("canvas").getContext("2d");
+    cx.strokeStyle = "blue";
+    cx.strokeRect(5, 5, 50, 50);
+    cx.lineWidth = 5;
+    cx.strokeRect(135, 5, 50, 50);
+</script>
+
+<!--
+This code draws two blue squares, using a thicker line for the second
+one.  
+When no width or height attribute is specified, as in the example,
+a canvas element gets a default width of 300 pixels and height of 150
+pixels.
+-->

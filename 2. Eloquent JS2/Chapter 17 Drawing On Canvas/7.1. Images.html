@@ -1,0 +1,35 @@
+<!--
+When drawImage is given nine arguments, it can be used to draw only
+a fragment of an image. The second through fifth arguments indicate
+the rectangle (x, y, width, and height) in the source image that should
+be copied, and the sixth to ninth arguments give the rectangle (on the
+canvas) into which it should be copied.
+This can be used to pack multiple sprites (image elements) into a
+single image file and then draw only the part you need. 
+By alternating which pose we draw, we can show an animation that
+looks like a walking character.
+To animate a picture on a canvas, the clearRect method is useful.
+It resembles fillRect, but instead of coloring the rectangle, it makes it
+transparent, removing the previously drawn pixels.
+-->
+
+<canvas></canvas>
+
+<script>
+    let cx = document.querySelector("canvas").getContext("2d");
+    let img = document.createElement("img");
+    img.src = "img/player.png";
+    let spriteW = 24, spriteH = 30;
+    img.addEventListener("load", () => {
+        let cycle = 0;
+        setInterval(() =>{
+            cx.clearRect(0, 0, spriteW, spriteH);
+            cx.drawImage(img,
+                         //source rectangle
+                         cycle * spriteW, 0, spriteW, spriteH,
+                         //destination rectangle
+                         0, 0, spriteW,spriteH);
+            cycle = (cycle +1) % 8;
+        }, 120);
+    });
+</script>

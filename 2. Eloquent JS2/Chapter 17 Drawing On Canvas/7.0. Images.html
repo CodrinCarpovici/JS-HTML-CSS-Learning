@@ -1,0 +1,26 @@
+<!--
+In computer graphics, a distinction is often made between vector graphics 
+and bitmap graphics. The first is what we have been doing so far
+in this chapter—specifying a picture by giving a logical description of
+shapes. Bitmap graphics, on the other hand, don’t specify actual shapes
+but rather work with pixel data (rasters of colored dots).
+The drawImage method allows us to draw pixel data onto a canvas.
+This pixel data can originate from an <img> element or from another
+canvas. The following example creates a detached <img> element and
+loads an image file into it. But it cannot immediately start drawing
+from this picture because the browser may not have loaded it yet. To
+deal with this, we register a "load" event handler and do the drawing
+after the image has loaded.
+-->
+
+<canvas width="1000" height="1000"></canvas>
+<script>
+    let cx = document.querySelector("canvas").getContext("2d");
+    let img = document.createElement("img");
+    img.src = "img/hat.jpg";
+    img.addEventListener("load", () => {
+        for (let x = 10; x < 200; x += 30) {
+            cx.drawImage(img, x, 10);
+        }
+    });
+</script>

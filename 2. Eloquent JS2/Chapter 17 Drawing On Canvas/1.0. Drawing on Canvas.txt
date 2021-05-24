@@ -1,0 +1,10 @@
+Browsers give us several ways to display graphics. The simplest way is
+to use styles to position and color regular DOM elements.
+But we’d be using the DOM for something that it wasn’t originally
+designed for.
+There are two alternatives. The first is DOM-based but utilizes Scalable 
+Vector Graphics (SVG), rather than HTML. Think of SVG as a
+document-markup dialect that focuses on shapes rather than text.
+The second alternative is called a canvas. A canvas is a single DOM
+element that encapsulates a picture. It provides a programming interface 
+for drawing shapes onto the space taken up by the node.
