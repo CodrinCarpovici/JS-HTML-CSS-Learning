@@ -1,0 +1,29 @@
+In this chapter we discussed techniques for drawing graphics in the
+browser, focusing on the <canvas> element.
+A canvas node represents an area in a document that our program
+may draw on. This drawing is done through a drawing context object,
+created with the getContext method.
+The 2D drawing interface allows us to fill and stroke various shapes.
+The context’s fillStyle property determines how shapes are filled. The
+strokeStyle and lineWidth properties control the way lines are drawn.
+Rectangles and pieces of text can be drawn with a single method
+call. The fillRect and strokeRect methods draw rectangles, and the
+fillText and strokeText methods draw text. To create custom shapes,
+we must first build up a path.
+Calling beginPath starts a new path. A number of other methods add
+lines and curves to the current path. For example, lineTo can add a
+straight line. When a path is finished, it can be filled with the fill
+method or stroked with the stroke method.
+Moving pixels from an image or another canvas onto our canvas is
+done with the drawImage method. By default, this method draws the
+whole source image, but by giving it more parameters, you can copy
+a specific area of the image. We used this for our game by copying
+individual poses of the game character out of an image that contained
+many such poses.
+Transformations allow you to draw a shape in multiple orientations.
+A 2D drawing context has a current transformation that can be changed
+with the translate, scale, and rotate methods. These will affect all
+subsequent drawing operations. A transformation state can be saved
+with the save method and restored with the restore method.
+When showing an animation on a canvas, the clearRect method can
+be used to clear part of the canvas before redrawing it.
