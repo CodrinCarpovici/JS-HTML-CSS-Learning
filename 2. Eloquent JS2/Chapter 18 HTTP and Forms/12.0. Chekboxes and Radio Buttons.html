@@ -1,0 +1,16 @@
+<label>
+    <input type="checkbox" id="purple"> Make this page purple
+</label>
+<script>
+    let checkbox = document.querySelector("#purple");
+    checkbox.addEventListener("change", () => {
+        document.body.style.background =
+            checkbox.checked ? "mediumpurple" : "";
+    });
+</script>
+
+<!--
+The <label> tag associates a piece of document with an input field.
+Clicking anywhere on the label will activate the field, which focuses it
+and toggles its value when it is a checkbox or radio button.
+-->

@@ -1,0 +1,45 @@
+<!--
+What it does not have is a property that contains the content of the
+file. Getting at that is a little more involved. Since reading a file from
+disk can take time, the interface must be asynchronous to avoid freezing
+the document.
+-->
+
+<input type="file" multiple>
+<script>
+    let input = document.querySelector("input");
+    input.addEventListener("change", () => {
+        for (let file of Array.from(input.files)) {
+            let reader = new FileReader();
+            reader.addEventListener("load", () => {
+                console.log("File", file.name, "starts with",
+                            reader.result.slice(0, 20));
+            });
+            reader.readAsText(file);
+        }
+    });
+</script>
+
+<!--
+Reading a file is done by creating a FileReader object, registering a
+"load" event handler for it, and calling its readAsText method, giving
+it the file we want to read. Once loading finishes, the reader’s result
+property contains the file’s content.
+FileReaders also fire an "error" event when reading the file fails for
+any reason. The error object itself will end up in the reader’s error
+property. This interface was designed before promises became part of
+the language. You could wrap it in a promise like this:
+-->
+
+<script>
+    function readTextFile(file) {
+        return new Promise((resolve, reject) => {
+            let reader = new FileReader();
+            reader.addEventListener(
+                "load", () => resolve(reader.result));
+            reader.addEventListener(
+                "error", () => reject(reader.error));
+            reader.readAsTextFile(file);
+        });
+    }
+</script>

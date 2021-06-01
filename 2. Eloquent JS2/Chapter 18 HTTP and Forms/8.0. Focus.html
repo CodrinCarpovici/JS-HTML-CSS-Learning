@@ -1,0 +1,48 @@
+<!--
+Unlike most elements in HTML documents, form fields can get keyboard
+focus. When clicked or activated in some other way, they become the
+currently active element and the recipient of keyboard input.
+Thus, you can type into a text field only when it is focused. Other
+fields respond differently to keyboard events. For example, a <select>
+menu tries to move to the option that contains the text the user typed
+and responds to the arrow keys by moving its selection up and down.
+We can control focus from JavaScript with the focus and blur methods. 
+The first moves focus to the DOM element it is called on, and the
+second removes focus. The value in document.activeElement corresponds
+to the currently focused element.
+-->
+
+<input type="text">
+<script>
+    document.querySelector("input").focus();
+    console.log(document.activeElement.tagName);
+    //->INPUT
+    document.querySelector("input").blur();
+    console.log(document.activeElement.tagName);
+    //->BODY
+</script>
+
+<!--
+For some pages, the user is expected to want to interact with a form
+field immediately. JavaScript can be used to focus this field when the
+document is loaded, but HTML also provides the autofocus attribute,
+which produces the same effect while letting the browser know what we
+are trying to achieve. This gives the browser the option to disable the
+behavior when it is not appropriate, such as when the user has put the
+focus on something else.
+Browsers traditionally also allow the user to move the focus through
+the document by pressing the tab key. We can influence the order in
+which elements receive focus with the tabindex attribute. The following
+example document will let the focus jump from the text input to the
+OK button, rather than going through the help link first:
+-->
+
+<input type="text" tabindex=1> <a href=".">(help)</a>
+<button onclick="console.log(`ok`)" tabindex=2>OK</button>
+
+<!--
+By default, most types of HTML elements cannot be focused. But
+you can add a tabindex attribute to any element that will make it
+focusable. A tabindex of -1 makes tabbing skip over an element, even
+if it is normally focusable.
+-->

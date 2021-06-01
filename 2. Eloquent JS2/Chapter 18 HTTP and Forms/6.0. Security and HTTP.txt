@@ -1,0 +1,20 @@
+Data traveling over the Internet tends to follow a long, dangerous road.
+To get to its destination, it must hop through anything from coffee shop
+Wi-Fi hotspots to networks controlled by various companies and states.
+At any point along its route it may be inspected or even modified.
+If it is important that something remain secret, such as the password
+to your email account, or that it arrive at its destination unmodified,
+such as the account number you transfer money to via your bank’s
+website, plain HTTP is not good enough.
+The secure HTTP protocol, used for URLs starting with https://,
+wraps HTTP traffic in a way that makes it harder to read and tamper
+with. Before exchanging data, the client verifies that the server is who it
+claims to be by asking it to prove that it has a cryptographic certificate
+issued by a certificate authority that the browser recognizes. Next,
+all data going over the connection is encrypted in a way that should
+prevent eavesdropping and tampering.
+Thus, when it works right, HTTPS prevents other people from impersonating 
+the website you are trying to talk to and from snooping
+on your communication. It is not perfect, and there have been various
+incidents where HTTPS failed because of forged or stolen certificates
+and broken software, but it is a lot safer than plain HTTP.

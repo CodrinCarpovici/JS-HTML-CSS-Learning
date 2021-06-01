@@ -1,0 +1,47 @@
+<!--
+Fields created by <textarea> tags, or <input> tags with a type of text or
+password, share a common interface. Their DOM elements have a value
+property that holds their current content as a string value. Setting this
+property to another string changes the field’s content.
+The selectionStart and selectionEnd properties of text fields give us
+information about the cursor and selection in the text. When nothing
+is selected, these two properties hold the same number, indicating the
+position of the cursor. For example, 0 indicates the start of the text,
+and 10 indicates the cursor is after the 10th character. When part of
+the field is selected, the two properties will differ, giving us the start
+and end of the selected text. Like value, these properties may also be
+written to.
+Imagine you are writing an article about Khasekhemwy but have
+some trouble spelling his name. The following code wires up a <textarea
+> tag with an event handler that, when you press F2, inserts the string
+“Khasekhemwy” for you.
+-->
+
+<textarea></textarea>
+<script>
+    let textarea = document.querySelector("textarea");
+    textarea.addEventListener("keydown", event => {
+        //The key code for F2 happens to be 113
+        if(event.keyCode == 113) {
+            replaceSelection(textarea, "Khasekhemwy");
+            event.preventDefault();
+        }
+    });
+    function replaceSelection(field, word) {
+        let from = field.selectionStart, to = field.selectionEnd;
+        field.value = field.value.slice(0, from) + word +
+                      field.value.slice(to);
+        //Put the cursor after the word
+        field.selectionStart = from + word.length;
+        field.selectionEnd = from + word.length;
+    }
+</script>
+
+<!--
+The replaceSelection function replaces the currently selected part of
+a text field’s content with the given word and then moves the cursor
+after that word so that the user can continue typing.
+The "change" event for a text field does not fire every time something
+is typed. Rather, it fires when the field loses focus after its content was
+changed.
+-->

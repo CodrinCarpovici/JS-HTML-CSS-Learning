@@ -1,0 +1,69 @@
+<!--
+Forms were originally designed for the pre-JavaScript Web to allow web
+sites to send user-submitted information in an HTTP request. This design 
+assumes that interaction with the server always happens by navigating to a new page.
+But their elements are part of the DOM like the rest of the page,
+and the DOM elements that represent form fields support a number
+of properties and events that are not present on other elements. These
+make it possible to inspect and control such input fields with JavaScript
+programs and do things such as adding new functionality to a form or
+using forms and fields as building blocks in a JavaScript application.
+
+A lot of field types use the <input> tag. This tag’s type attribute is
+used to select the field’s style. These are some commonly used <input>
+types:
+text A single-line text field
+password Same as text but hides the text that is typed
+checkbox An on/off switch
+radio (Part of) a multiple-choice field
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Fields</title>
+</head>
+
+<body>
+    <p><input type="text" value="abc"> (text)</p>
+    <p><input type="password" value="abc"> (password)</p>
+    <p><input type="checkbox" checked> (checkbox)</p>
+    <p><input type="radio" value="A" name="choice">
+        <input type="radio" value="B" name="choice" checked>
+        <input type="radio" value="C" name="choice"> (radio)
+    </p>
+    <p><input type="file"> (file)</p>
+
+<!--
+Multiline text fields have their own tag, <textarea>, mostly because
+using an attribute to specify a multiline starting value would be awkward. The <textarea> tag requires a matching </textarea> closing tag
+and uses the text between those two, instead of the value attribute, as
+starting text.
+-->
+    <textarea>
+        one
+        two
+        three
+    </textarea>
+
+<!--
+The <select> tag is used to create a field that allows the user
+to select from a number of predefined options.
+-->
+
+    <select>
+        <option>Pancakes</option>
+        <option>Pudding</option>
+        <option>Ice cream</option>
+    </select>
+
+<!--
+Whenever the value of a form field changes, it will fire a "change"
+event.
+-->
+</body>
+
+</html>

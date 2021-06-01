@@ -1,0 +1,82 @@
+<!--
+As we saw in the example, a browser will make a request when we enter
+a URL in its address bar. When the resulting HTML page references
+other files, such as images and JavaScript files, those are also retrieved.
+A moderately complicated website can easily include anywhere from
+10 to 200 resources. To be able to fetch those quickly, browsers will
+make several GET requests simultaneously, rather than waiting for the
+responses one at a time.
+HTML pages may include forms, which allow the user to fill out
+information and send it to the server. This is an example of a form:
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Form</title>
+</head>
+<body>
+    <form method="GET" action="example/message.html">
+        <p>Name: <input type="text" name="name"></p>
+        <p>Message:<br><textarea name="message"></textarea></p>
+        <p><button type="submit">Send</button></p>
+    </form>
+
+<!--
+This code describes a form with two fields: a small one asking for a
+name and a larger one to write a message in. When you click the Send
+button, the form is submitted, meaning that the content of its field is
+packed into an HTTP request and the browser navigates to the result
+of that request.
+When the <form> element’s method attribute is GET (or is omitted),
+the information in the form is added to the end of the action URL as
+a query string. The browser might make a request to this URL:
+
+GET /example/message.html?name=Jean&message=Yes%3F HTTP/1.1
+
+The question mark indicates the end of the path part of the URL
+and the start of the query. It is followed by pairs of names and values,
+corresponding to the name attribute on the form field elements and the
+content of those elements, respectively. An ampersand character (&) is
+used to separate the pairs.
+The actual message encoded in the URL is “Yes?”, but the question
+mark is replaced by a strange code. Some characters in query strings
+must be escaped. The question mark, represented as %3F, is one of
+those. There seems to be an unwritten rule that every format needs
+its own way of escaping characters. This one, called URL encoding,
+uses a percent sign followed by two hexadecimal (base 16) digits that
+encode the character code. In this case, 3F, which is 63 in decimal
+notation, is the code of a question mark character. JavaScript provides
+the encodeURIComponent and decodeURIComponent functions to encode and
+decode this format.
+-->
+    <script>
+        console.log(encodeURIComponent("Yes?"));
+        //->Yes%3F
+        console.log(decodeURIComponent("Yes%3F"));
+        //->Yes?
+    </script>
+
+<!--
+If we change the method attribute of the HTML form in the example
+we saw earlier to POST, the HTTP request made to submit the form
+will use the POST method and put the query string in the body of the
+request, rather than adding it to the URL.
+
+POST /example/message.html HTTP/1.1
+Content-length: 24
+Content-type: application/x-www-form-urlencoded
+name=Jean&message=Yes%3F
+
+GET requests should be used for requests that do not have side effects
+but simply ask for information. Requests that change something on the
+server, for example creating a new account or posting a message, should
+be expressed with other methods, such as POST. Client-side software
+such as a browser knows that it shouldn’t blindly make POST requests
+but will often implicitly make GET requests—for example to prefetch a
+resource it believes the user will soon need
+-->
+</body>
+</html>

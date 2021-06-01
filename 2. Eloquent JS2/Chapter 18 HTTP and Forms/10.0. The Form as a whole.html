@@ -1,0 +1,37 @@
+<!--
+When a field is contained in a <form> element, its DOM element will
+have a form property linking back to the form’s DOM element. The
+<form> element, in turn, has a property called elements that contains an
+array-like collection of the fields inside it.
+The name attribute of a form field determines the way its value will be
+identified when the form is submitted. It can also be used as a property
+name when accessing the form’s elements property, which acts both as
+an array-like object (accessible by number) and a map (accessible by
+name).
+-->
+
+<form action="example/submit.html">
+    Name: <input type="text" name="name"><br>
+    Password: <input type="password" name="password"><br>
+    <button type="submit">Log in</button>
+</form>
+<script>
+    let form = document.querySelector("form");
+    console.log(form.elements[1].type);
+    //->password
+    console.log(form.elements.password.type);
+    //->password
+    cosnole.log(form.elements.name.form == form);
+    //->true
+</script>
+
+<!--
+A button with a type attribute of submit will, when pressed, cause
+the form to be submitted. Pressing enter when a form field is focused
+has the same effect.
+Submitting a form normally means that the browser navigates to the
+page indicated by the form’s action attribute, using either a GET or a
+POST request. But before that happens, a "submit" event is fired. You
+can handle this event with JavaScript and prevent this default behavior
+by calling preventDefault on the event object.
+-->

@@ -1,0 +1,30 @@
+<!--
+To respond immediately to changes in a text field, you should
+register a handler for the "input" event instead, which fires for every
+time the user types a character, deletes text, or otherwise manipulates
+the field’s content.
+The following example shows a text field and a counter displaying
+the current length of the text in the field:
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>length counter</title>
+</head>
+
+<body>
+    <input type="text"> length: <span id="length">0</span>
+    <script>
+        let text = document.querySelector("input");
+        let output = document.querySelector("#length");
+        text.addEventListener("input", () => {
+            output.textContent = text.value.length;
+        });
+    </script>
+</body>
+
+</html>

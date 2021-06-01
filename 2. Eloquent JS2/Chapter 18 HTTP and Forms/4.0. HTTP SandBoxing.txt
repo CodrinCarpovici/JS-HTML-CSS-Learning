@@ -1,0 +1,10 @@
+Making HTTP requests in web page scripts once again raises concerns
+about security. The person who controls the script might not have the
+same interests as the person on whose computer it is running.
+For this reason, browsers protect us by disallowing scripts to make
+HTTP requests to other domains (names such as themafia.org and mybank.com).
+This can be an annoying problem when building systems that want to
+access several domains for legitimate reasons. Fortunately, servers can
+include a header like this in their response to explicitly indicate to the
+browser that it is okay for the request to come from another domain:
+Access-Control-Allow-Origin: *

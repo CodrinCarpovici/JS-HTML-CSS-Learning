@@ -1,0 +1,20 @@
+<form action="example/submit.html">
+    Value: <input type="text" name="value">
+    <button type="submit">Save</button>
+</form>
+<script>
+    let form = document.querySelector("form");
+    form.addEventListener("submit", event => {
+        console.log("Saving Value", form.elements.value.value);
+        event.preventDefault();
+    });
+</script>
+
+<!--
+Intercepting "submit" events in JavaScript has various uses. We can
+write code to verify that the values the user entered make sense and
+immediately show an error message instead of submitting the form. Or
+we can disable the regular way of submitting the form entirely, as in the
+example, and have our program handle the input, possibly using fetch
+to send it to a server without reloading the page.
+-->

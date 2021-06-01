@@ -1,0 +1,34 @@
+In this chapter, we discussed how the HTTP protocol works. A client
+sends a request, which contains a method (usually GET) and a path
+that identifies a resource. The server then decides what to do with the
+request and responds with a status code and a response body. Both
+requests and responses may contain headers that provide additional
+information.
+The interface through which browser JavaScript can make HTTP
+requests is called fetch. Making a request looks like this:
+fetch("/18_http.html").then(r => r.text()).then(text => {
+console.log(`The page starts with ${text.slice(0, 15)}`);
+});
+Browsers make GET requests to fetch the resources needed to display
+a web page. A page may also contain forms, which allow information
+entered by the user to be sent as a request for a new page when the
+form is submitted.
+HTML can represent various types of form fields, such as text fields,
+checkboxes, multiple-choice fields, and file pickers.
+Such fields can be inspected and manipulated with JavaScript. They
+fire the "change" event when changed, fire the "input" event when text
+is typed, and receive keyboard events when they have keyboard focus.
+Properties like value (for text and select fields) or checked 
+(for checkboxes and radio buttons) are used to read or set the field’s 
+content.
+When a form is submitted, a "submit" event is fired on it. A JavaScript
+handler can call preventDefault on that event to disable the browser’s
+default behavior. Form field elements may also occur outside of a form
+tag.
+When the user has selected a file from their local file system in a file
+picker field, the FileReader interface can be used to access the content
+of this file from a JavaScript program.
+The localStorage and sessionStorage objects can be used to save
+information in a way that survives page reloads. The first object saves
+the data forever (or until the user decides to clear it), and the second
+saves it until the browser is closed.

@@ -1,0 +1,40 @@
+<!--
+Select fields are conceptually similar to radio buttons—they also allow
+the user to choose from a set of options. But where a radio button
+puts the layout of the options under our control, the appearance of a
+<select> tag is determined by the browser.
+
+Select fields also have a variant that is more akin to a list of checkboxes, 
+rather than radio boxes. When given the multiple attribute, a
+<select> tag will allow the user to select any number of options, rather
+than just a single option. This will, in most browsers, show up differently 
+than a normal select field, which is typically drawn as a drop-down
+control that shows the options only when you open it.
+
+The <option> tags for a <select> field can be accessed as an array-like
+object through the field’s options property. Each option has a property 
+called selected, which indicates whether that option is currently
+selected. The property can also be written to select or deselect an
+option.
+-->
+
+<select multiple>
+    <option value="1">0001</option>
+    <option value="2">0010</option>
+    <option value="4">0100</option>
+    <option value="8">1000</option>
+</select> = <span id="output">0</span>
+
+<script>
+    let select = document.querySelector("select");
+    let output = document.querySelector("#output");
+    select.addEventListener("change", () => {
+        let number = 0;
+        for (let option of Array.from(select.options)) {
+            if (option.selected) {
+                number += Number(option.value);
+            }
+        }
+        output.textContent = number;
+    });
+</script>
