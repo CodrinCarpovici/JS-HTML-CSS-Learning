@@ -1,0 +1,16 @@
+Node is a nice, small system that lets us run JavaScript in a nonbrowser
+context. It was originally designed for network tasks to play the role of
+a node in a network. But it lends itself to all kinds of scripting tasks,
+and if writing JavaScript is something you enjoy, automating tasks with
+Node works well.
+NPM provides packages for everything you can think of (and quite
+a few things you’d probably never think of), and it allows you to fetch
+and install those packages with the npm program. Node comes with a
+number of built-in modules, including the fs module for working with
+the file system and the http module for running HTTP servers and
+making HTTP requests.
+All input and output in Node is done asynchronously, unless you 
+explicitly use a synchronous variant of a function, such as readFileSync.
+When calling such asynchronous functions, you provide callback functions, 
+and Node will call them with an error value and (if available) a
+result when it is ready.
