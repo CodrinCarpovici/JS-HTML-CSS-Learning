@@ -1,0 +1,14 @@
+{
+  "name": "skillsharingsite",
+  "version": "1.0.0",
+  "description": "Skill Sharing Website",
+  "main": "router.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Codrin",
+  "license": "ISC",
+  "dependencies": {
+    "ecstatic": "^4.1.4"
+  }
+}
